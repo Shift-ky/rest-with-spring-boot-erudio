@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class GretingControloer {
 	
 	private static final String template = "hello, %s!";
+	
+	
 	private final AtomicLong counter = new AtomicLong();
 	
 	@RequestMapping("/greeting")
-	public Greting greeting(@RequestParam(value = "name", defaultValue = "Word")
+	public Greting greeting(
+			@RequestParam(value = "name", defaultValue = "Word")
 	String name) {
 		
 		return new Greting(counter.incrementAndGet(), String.format(template, name));
